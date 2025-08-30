@@ -19,7 +19,7 @@ export default function PageViewsBarChart() {
     <Card variant="outlined" sx={{ width: '100%' }}>
       <CardContent>
         <Typography component="h2" variant="subtitle2" gutterBottom>
-          Page views and downloads
+          Talent pool skills distribution
         </Typography>
         <Stack sx={{ justifyContent: 'space-between' }}>
           <Stack
@@ -31,12 +31,12 @@ export default function PageViewsBarChart() {
             }}
           >
             <Typography variant="h4" component="p">
-              1.3M
+              80%
             </Typography>
-            <Chip size="small" color="error" label="-8%" />
+            {/* <Chip size="small" color="error" label="-8%" /> */}
           </Stack>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Page views and downloads for the last 6 months
+            Percentage of candidates with in-demand skills
           </Typography>
         </Stack>
         <BarChart
@@ -46,7 +46,7 @@ export default function PageViewsBarChart() {
             {
               scaleType: 'band',
               categoryGapRatio: 0.5,
-              data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+              data: ['Python', 'React', 'Java', 'OOP', 'Django', 'Flutter', 'OpenCV'],
               height: 24,
             },
           ]}
@@ -55,23 +55,24 @@ export default function PageViewsBarChart() {
             {
               id: 'page-views',
               label: 'Page views',
-              data: [2234, 3872, 2998, 4125, 3357, 2789, 2998],
+              data: [22.34, 38.72, 29.98, 41.25, 33.57, 27.89, 29.98],
               stack: 'A',
             },
             {
               id: 'downloads',
               label: 'Downloads',
-              data: [3098, 4215, 2384, 2101, 4752, 3593, 2384],
+              data: [30.98, 42.15, 23.84, 21.01, 47.52, 35.93, 23.84],
               stack: 'A',
             },
             {
               id: 'conversions',
               label: 'Conversions',
-              data: [4051, 2275, 3129, 4693, 3904, 2038, 2275],
+              data: [40.51, 22.75, 31.29, 46.93, 39.04, 20.38, 22.75],
               stack: 'A',
             },
           ]}
-          height={250}
+          
+          height={400}
           margin={{ left: 0, right: 0, top: 20, bottom: 0 }}
           grid={{ horizontal: true }}
           hideLegend

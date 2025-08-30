@@ -1,12 +1,12 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Chip from '@mui/material/Chip';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import { LineChart } from '@mui/x-charts/LineChart';
+import * as React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import { LineChart } from "@mui/x-charts/LineChart";
 
 function AreaGradient({ color, id }) {
   return (
@@ -26,8 +26,8 @@ AreaGradient.propTypes = {
 
 function getDaysInMonth(month, year) {
   const date = new Date(year, month, 0);
-  const monthName = date.toLocaleDateString('en-US', {
-    month: 'short',
+  const monthName = date.toLocaleDateString("en-US", {
+    month: "short",
   });
   const daysInMonth = date.getDate();
   const days = [];
@@ -50,34 +50,34 @@ export default function SessionsChart() {
   ];
 
   return (
-    <Card variant="outlined" sx={{ width: '100%' }}>
+    <Card variant="outlined" sx={{ width: "100%" }}>
       <CardContent>
         <Typography component="h2" variant="subtitle2" gutterBottom>
-          Sessions
+          Candidate progress trends
         </Typography>
-        <Stack sx={{ justifyContent: 'space-between' }}>
+        <Stack sx={{ justifyContent: "space-between" }}>
           <Stack
             direction="row"
             sx={{
-              alignContent: { xs: 'center', sm: 'flex-start' },
-              alignItems: 'center',
+              alignContent: { xs: "center", sm: "flex-start" },
+              alignItems: "center",
               gap: 1,
             }}
           >
             <Typography variant="h4" component="p">
-              13,277
+              68
             </Typography>
-            <Chip size="small" color="success" label="+35%" />
+            <Chip size="small" color="success" label="+25%" />
           </Stack>
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Sessions per day for the last 30 days
+          <Typography variant="caption" sx={{ color: "text.secondary" }}>
+            Current overall average user skill level
           </Typography>
         </Stack>
         <LineChart
           colors={colorPalette}
           xAxis={[
             {
-              scaleType: 'point',
+              scaleType: "point",
               data,
               tickInterval: (index, i) => (i + 1) % 5 === 0,
               height: 24,
@@ -86,59 +86,56 @@ export default function SessionsChart() {
           yAxis={[{ width: 50 }]}
           series={[
             {
-              id: 'direct',
-              label: 'Direct',
+              id: "direct",
+              label: "Direct",
               showMark: false,
-              curve: 'linear',
-              stack: 'total',
+              curve: "linear",
+              stack: "total",
               area: true,
-              stackOrder: 'ascending',
+              stackOrder: "ascending",
               data: [
-                300, 900, 600, 1200, 1500, 1800, 2400, 2100, 2700, 3000, 1800, 3300,
-                3600, 3900, 4200, 4500, 3900, 4800, 5100, 5400, 4800, 5700, 6000,
-                6300, 6600, 6900, 7200, 7500, 7800, 8100,
+                3, 9, 6, 12, 15, 18, 24, 21, 27, 30, 18, 33, 36, 39, 42, 45, 39,
+                48, 51, 54, 48, 57, 60, 63, 66, 69, 72, 75, 78, 81,
               ],
             },
             {
-              id: 'referral',
-              label: 'Referral',
+              id: "referral",
+              label: "Referral",
               showMark: false,
-              curve: 'linear',
-              stack: 'total',
+              curve: "linear",
+              stack: "total",
               area: true,
-              stackOrder: 'ascending',
+              stackOrder: "ascending",
               data: [
-                500, 900, 700, 1400, 1100, 1700, 2300, 2000, 2600, 2900, 2300, 3200,
-                3500, 3800, 4100, 4400, 2900, 4700, 5000, 5300, 5600, 5900, 6200,
-                6500, 5600, 6800, 7100, 7400, 7700, 8000,
+                5, 9, 7, 14, 11, 17, 23, 20, 26, 29, 23, 32, 35, 38, 41, 44, 29,
+                47, 50, 53, 56, 59, 62, 65, 56, 68, 71, 74, 77, 80,
               ],
             },
             {
-              id: 'organic',
-              label: 'Organic',
+              id: "organic",
+              label: "Organic",
               showMark: false,
-              curve: 'linear',
-              stack: 'total',
-              stackOrder: 'ascending',
+              curve: "linear",
+              stack: "total",
+              stackOrder: "ascending",
               data: [
-                1000, 1500, 1200, 1700, 1300, 2000, 2400, 2200, 2600, 2800, 2500,
-                3000, 3400, 3700, 3200, 3900, 4100, 3500, 4300, 4500, 4000, 4700,
-                5000, 5200, 4800, 5400, 5600, 5900, 6100, 6300,
+                10, 15, 12, 17, 13, 20, 24, 22, 26, 28, 25, 30, 34, 37, 32, 39,
+                41, 35, 43, 45, 40, 47, 50, 52, 48, 54, 56, 59, 61, 63,
               ],
               area: true,
             },
           ]}
-          height={250}
+          height={400}
           margin={{ left: 0, right: 20, top: 20, bottom: 0 }}
           grid={{ horizontal: true }}
           sx={{
-            '& .MuiAreaElement-series-organic': {
+            "& .MuiAreaElement-series-organic": {
               fill: "url('#organic')",
             },
-            '& .MuiAreaElement-series-referral': {
+            "& .MuiAreaElement-series-referral": {
               fill: "url('#referral')",
             },
-            '& .MuiAreaElement-series-direct': {
+            "& .MuiAreaElement-series-direct": {
               fill: "url('#direct')",
             },
           }}
