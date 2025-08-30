@@ -4,15 +4,13 @@ import AuthLayout from "./layouts/AuthLayout";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainLayout from "./layouts/MainLayout";
-import PostDetailsPage from "./pages/PostDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import Navbar from "./components/Navbar";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import ProtectedAuthRoute from "./ProtectedRoutes/ProtectedAuthRoute";
 import DashboardPage from "./pages/DashboardPage";
 import RoadMapPage from "./pages/RoadMapPage";
-import ProjectManger from "./pages/ProjectManagerPage";
-
+import ProjectManger from "./pages/ManagerPage";
+import DashboardCompany from "./pages/dashboard-company";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +36,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "",
+    path: "/user",
     element: <MainLayout />,
     children: [
       {
@@ -55,30 +53,51 @@ const router = createBrowserRouter([
           // <ProtectedRoute>
           //   <DashboardPage />
           // </ProtectedRoute>
-            <DashboardPage />
-          
+          <DashboardPage />
         ),
       },
+
       {
         path: "roadmap",
         element: (
           // <ProtectedRoute>
           //   <RoadMapPage />
           // </ProtectedRoute>
-            <RoadMapPage />     
+          <RoadMapPage />
         ),
       },
+
       {
         path: "project-manager",
         element: (
           // <ProtectedRoute>
           //   <ProjectManger />
           // </ProtectedRoute>
-            <ProjectManger />     
+          <ProjectManger />
+        ),
+      },
+      {
+        path: "project-manager/:id",
+        element: (
+          // <ProtectedRoute>
+          //   <ProjectManger />
+          // </ProtectedRoute>
+          <ProjectManger />
         ),
       },
 
       { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+
+  {
+    path: "/company",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardCompany />,
+      },
     ],
   },
 ]);

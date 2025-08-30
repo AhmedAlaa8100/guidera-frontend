@@ -1,10 +1,10 @@
 import { useDarkMode } from "../contexts/DarkModeContext";
 import { Outlet } from "react-router-dom";
-import Navbar from './../components/Navbar';
-import Footer from './../components/Footer';
+import Navbar from "./../components/Navbar";
+import Footer from "./../components/Footer";
 
 export default function MainLayout() {
-    const { darkMode } = useDarkMode();
+  const { darkMode } = useDarkMode();
   return (
     <>
       <Navbar />
@@ -21,4 +21,3 @@ export default function MainLayout() {
     </>
   );
 }
-

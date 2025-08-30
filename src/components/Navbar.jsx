@@ -76,13 +76,13 @@ export default function Navbar() {
   };
 
   const navigationItems = [
-    { to: "/roadmap", label: "RoadMap", icon: <Timeline />, path: "/roadmap" },
-    { to: "/dashboard", label: "Home", icon: <Home />, path: "/dashboard" },
+    { to: "/user/roadmap", label: "RoadMap", icon: <Timeline />, path: "/roadmap" },
+    { to: "/user/dashboard", label: "Home", icon: <Home />, path: "/dashboard" },
     {
-      to: "/project-manager",
+      to: "/user/project-manager",
       label: "Projects",
       icon: <Business />,
-      path: "/project-manager",
+      path: "/user/project-manager",
     },
   ];
 
@@ -184,7 +184,7 @@ export default function Navbar() {
               cursor: "pointer",
               letterSpacing: "-0.5px",
             }}
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/user/dashboard")}
           >
             Guidera
           </Typography>

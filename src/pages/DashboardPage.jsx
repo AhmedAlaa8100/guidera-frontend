@@ -48,50 +48,6 @@ export default function DashboardPage() {
         "We're looking for an experienced frontend developer to join our team...",
       posted: "2 days ago",
     },
-    {
-      id: 3,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team...",
-      posted: "2 days ago",
-    },
-    {
-      id: 4,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team...",
-      posted: "2 days ago",
-    },
-    {
-      id: 5,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team...",
-      posted: "2 days ago",
-    },
-    {
-      id: 6,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. We're looking for an experienced frontend developer to join our team lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      posted: "2 days ago",
-    },
   ]);
 
   // Handy merge setter for user
