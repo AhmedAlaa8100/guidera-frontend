@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import "./App.css";
 import AuthLayout from "./layouts/AuthLayout";
 import LoginPage from "./pages/LoginPage";
@@ -12,6 +16,7 @@ import RoadMapPage from "./pages/RoadMapPage";
 import ProjectManger from "./pages/ManagerPage";
 import DashboardCompany from "./pages/dashboard-company";
 import AboutPage from "./pages/AboutPage";
+import JobOffersPage from "./pages/JobOffersPage";
 
 const router = createBrowserRouter([
   {
@@ -42,9 +47,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <AboutPage/>
-        ),
+        element: <Navigate to="about" />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
       },
       {
         path: "dashboard",
@@ -53,6 +60,15 @@ const router = createBrowserRouter([
           //   <DashboardPage />
           // </ProtectedRoute>
           <DashboardPage />
+        ),
+      },
+      {
+        path: "job-offers",
+        element: (
+          // <ProtectedRoute>
+          //   <JobOffersPage />
+          // </ProtectedRoute>
+          <JobOffersPage />
         ),
       },
 

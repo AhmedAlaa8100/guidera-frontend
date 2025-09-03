@@ -24,32 +24,6 @@ export default function DashboardPage() {
     linkedinProfile: "",
   });
 
-  // Job offers (mock)
-  const [jobOffers, setJobOffers] = useState([
-    {
-      id: 1,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team...",
-      posted: "2 days ago",
-    },
-    {
-      id: 2,
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      salary: "$120k - $150k",
-      description:
-        "We're looking for an experienced frontend developer to join our team...",
-      posted: "2 days ago",
-    },
-  ]);
-
   // Handy merge setter for user
   const patchUser = (partial) => setUser((u) => ({ ...u, ...partial }));
 
@@ -81,12 +55,7 @@ export default function DashboardPage() {
         </GlassCard>
       </div>
 
-      {/* Job Offers */}
-      <div className="mt-8 mb-8">
-        <GlassCard maxWidth="100%">
-          <JobOffersSection jobs={jobOffers} />
-        </GlassCard>
-      </div>
+ 
     </Container>
   );
 }

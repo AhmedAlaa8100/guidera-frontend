@@ -28,6 +28,7 @@ import {
   Timeline,
   Business,
   Menu as MenuIcon,
+  Info,
 } from "@mui/icons-material";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { authContext } from "../contexts/authContext";
@@ -76,13 +77,35 @@ export default function Navbar() {
   };
 
   const navigationItems = [
-    { to: "/user/roadmap", label: "RoadMap", icon: <Timeline />, path: "/roadmap" },
-    { to: "/user/dashboard", label: "Home", icon: <Home />, path: "/dashboard" },
+    {
+      to: "/user/roadmap",
+      label: "RoadMap",
+      icon: <Timeline />,
+      path: "/user/roadmap",
+    },
     {
       to: "/user/project-manager",
-      label: "Projects",
+      label: "Drafts",
       icon: <Business />,
       path: "/user/project-manager",
+    },
+    {
+      to: "/user/dashboard",
+      label: "Profile",
+      icon: <Person />,
+      path: "/user/dashboard",
+    },
+    {
+      to: "/user/job-offers",
+      label: "Job Offers",
+      icon: <Work />,
+      path: "/user/job-offers",
+    },
+    {
+      to: "/user/about",
+      label: "About",
+      icon: <Info />,
+      path: "/user/about",
     },
   ];
 
