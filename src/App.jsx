@@ -11,6 +11,7 @@ import DashboardPage from "./pages/DashboardPage";
 import RoadMapPage from "./pages/RoadMapPage";
 import ProjectManger from "./pages/ManagerPage";
 import DashboardCompany from "./pages/dashboard-company";
+import AboutPage from "./pages/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -42,9 +43,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <ProtectedRoute>
-            <DashboardPage />
-          </ProtectedRoute>
+          <AboutPage/>
         ),
       },
       {

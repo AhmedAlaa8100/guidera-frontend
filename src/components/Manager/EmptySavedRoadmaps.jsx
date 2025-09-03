@@ -12,7 +12,7 @@ export default function EmptySavedRoadmaps() {
   const navigate = useNavigate();
 
   const handleCreateRoadmap = () => {
-    navigate("/roadmap");
+    navigate("/user/roadmap");
   };
 
   return (

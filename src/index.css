@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
-/* Your custom styles */
+/* ==========================================================================
+   CSS RESET & BASE STYLES
+   ========================================================================== */
 @layer base {
-  /* Reset and base styles */
   * {
     margin: 0;
     padding: 0;
@@ -14,18 +15,18 @@
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+                 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+                 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
-    /* Use MUI-compatible colors */
     background-color: #fafafa;
     color: #212121;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Enhanced dark mode body styles - Peak elegance */
+  /* Dark mode body styles */
   .dark body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     color: #f8fafc;
@@ -46,11 +47,17 @@
     pointer-events: none;
     z-index: -1;
   }
+}
 
-  /* Enhanced heading styles that align with MUI theme */
+/* ==========================================================================
+   TYPOGRAPHY STYLES
+   ========================================================================== */
+@layer base {
+  /* Headings */
   h1 {
     @apply text-4xl font-bold mb-4;
-    color: #1976d2; /* MUI primary color */
+    color: #1976d2;
+    transition: color 0.3s ease;
   }
 
   .dark h1 {
@@ -63,7 +70,8 @@
 
   h2 {
     @apply text-3xl font-semibold mb-3;
-    color: #424242; /* MUI grey 800 */
+    color: #424242;
+    transition: color 0.3s ease;
   }
 
   .dark h2 {
@@ -74,6 +82,7 @@
   h3 {
     @apply text-2xl font-semibold mb-3;
     color: #424242;
+    transition: color 0.3s ease;
   }
 
   .dark h3 {
@@ -83,7 +92,8 @@
 
   h4 {
     @apply text-xl font-medium mb-2;
-    color: #616161; /* MUI grey 700 */
+    color: #616161;
+    transition: color 0.3s ease;
   }
 
   .dark h4 {
@@ -94,6 +104,7 @@
   h5 {
     @apply text-lg font-medium mb-2;
     color: #616161;
+    transition: color 0.3s ease;
   }
 
   .dark h5 {
@@ -103,7 +114,8 @@
 
   h6 {
     @apply text-base font-medium mb-2;
-    color: #757575; /* MUI grey 600 */
+    color: #757575;
+    transition: color 0.3s ease;
   }
 
   .dark h6 {
@@ -111,10 +123,11 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
-  /* Enhanced paragraph styles */
+  /* Paragraphs */
   p {
     @apply mb-4;
     color: #424242;
+    transition: color 0.3s ease;
   }
 
   .dark p {
@@ -122,14 +135,36 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
-  /* Enhanced link styles that match MUI theme */
+  /* Lists */
+  ul, ol {
+    @apply mb-4;
+  }
+
+  li {
+    @apply mb-1;
+    color: #424242;
+    transition: color 0.3s ease;
+  }
+
+  .dark li {
+    color: #cbd5e1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS
+   ========================================================================== */
+@layer base {
+  /* Links */
   a {
     color: #1976d2;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
 
   a:hover {
-    color: #1565c0; /* MUI primary dark */
+    color: #1565c0;
     transform: translateY(-1px);
   }
 
@@ -139,12 +174,12 @@
   }
 
   .dark a:hover {
-    color: #93c5fd; /* Enhanced blue */
+    color: #93c5fd;
     text-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
     transform: translateY(-1px);
   }
 
-  /* Enhanced button base styles */
+  /* Buttons */
   button {
     @apply focus:outline-none;
     transition: all 0.3s ease;
@@ -155,7 +190,7 @@
     outline-offset: 2px;
   }
 
-  /* Enhanced input base styles */
+  /* Form Elements */
   input, textarea, select {
     @apply focus:outline-none;
     transition: all 0.3s ease;
@@ -166,26 +201,34 @@
     outline-offset: 2px;
   }
 
-  /* Enhanced list styles */
-  ul, ol {
-    @apply mb-4;
-  }
-
-  li {
-    @apply mb-1;
+  label {
+    @apply block text-sm font-medium mb-2;
     color: #424242;
+    transition: color 0.3s ease;
   }
 
-  .dark li {
-    color: #cbd5e1;
+  .dark label {
+    color: #e2e8f0;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
-  /* Enhanced code styles */
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+  }
+}
+
+/* ==========================================================================
+   CODE & CONTENT STYLES
+   ========================================================================== */
+@layer base {
+  /* Code blocks */
   code {
     @apply px-2 py-1 rounded text-sm font-mono;
     background-color: #f5f5f5;
     color: #424242;
+    transition: all 0.3s ease;
   }
 
   .dark code {
@@ -200,6 +243,7 @@
     @apply p-4 rounded-lg overflow-x-auto;
     background-color: #f5f5f5;
     color: #424242;
+    transition: all 0.3s ease;
   }
 
   .dark pre {
@@ -212,11 +256,12 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
-  /* Enhanced blockquote styles */
+  /* Blockquotes */
   blockquote {
     @apply border-l-4 pl-4 italic my-4;
     border-color: #1976d2;
     color: #424242;
+    transition: all 0.3s ease;
   }
 
   .dark blockquote {
@@ -228,10 +273,11 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
-  /* Enhanced table styles */
+  /* Tables */
   table {
     @apply w-full border-collapse border;
     border-color: #e0e0e0;
+    transition: all 0.3s ease;
   }
 
   .dark table {
@@ -245,6 +291,7 @@
   th, td {
     @apply px-4 py-2 text-left;
     border-color: #e0e0e0;
+    transition: all 0.3s ease;
   }
 
   .dark th, .dark td {
@@ -255,6 +302,7 @@
     @apply font-semibold;
     background-color: #f5f5f5;
     color: #424242;
+    transition: all 0.3s ease;
   }
 
   .dark th {
@@ -264,31 +312,17 @@
     font-weight: 600;
   }
 
-  /* Enhanced image styles */
+  /* Images */
   img {
     @apply max-w-full h-auto;
   }
-
-  /* Enhanced form element styles */
-  label {
-    @apply block text-sm font-medium mb-2;
-    color: #424242;
-  }
-
-  .dark label {
-    color: #e2e8f0;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Enhanced focus visible for accessibility */
-  *:focus-visible {
-    outline: 2px solid #1976d2;
-    outline-offset: 2px;
-  }
 }
 
-/* Enhanced custom component styles that align with MUI */
+/* ==========================================================================
+   COMPONENT STYLES
+   ========================================================================== */
 @layer components {
+  /* Buttons */
   .btn-primary {
     @apply font-medium py-2 px-4 rounded-lg transition-all duration-300;
     background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
@@ -315,11 +349,13 @@
     box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
   }
 
+  /* Cards */
   .card {
     @apply rounded-lg shadow-md p-6 border;
     background-color: rgba(255, 255, 255, 0.9);
     border-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
   }
 
   .dark .card {
@@ -332,6 +368,7 @@
     backdrop-filter: blur(20px);
   }
 
+  /* Input Fields */
   .input-field {
     @apply w-full px-3 py-2 border rounded-md;
     background-color: white;
@@ -367,8 +404,11 @@
   }
 }
 
-/* Enhanced custom utility styles */
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
 @layer utilities {
+  /* Text shadows */
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -377,6 +417,7 @@
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
+  /* Scrollbar utilities */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -386,11 +427,12 @@
     display: none;
   }
 
-  /* Enhanced MUI-compatible glass morphism */
+  /* Glass morphism */
   .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
   }
 
   .dark .glass {
@@ -402,7 +444,7 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  /* Premium dark mode utilities */
+  /* Premium dark mode effects */
   .dark .premium-glow {
     box-shadow: 
       0 0 20px rgba(96, 165, 250, 0.3),
@@ -421,5 +463,30 @@
       rgba(96, 165, 250, 0.05) 0%, 
       rgba(59, 130, 246, 0.03) 50%, 
       rgba(29, 78, 216, 0.05) 100%);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
   }
 }
