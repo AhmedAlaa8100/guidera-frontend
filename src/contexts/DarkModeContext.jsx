@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 
 const DarkModeContext = createContext();
 
@@ -23,10 +30,15 @@ export function DarkModeProvider({ children }) {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
+  const toggleDarkMode = useCallback(() => setDarkMode((prev) => !prev), []);
+
+  const contextValue = useMemo(
+    () => ({ darkMode, toggleDarkMode }),
+    [darkMode, toggleDarkMode]
+  );
 
   return (
-    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <DarkModeContext.Provider value={contextValue}>
       {children}
     </DarkModeContext.Provider>
   );

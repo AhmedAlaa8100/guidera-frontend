@@ -2,7 +2,11 @@ import * as zod from "zod";
 
 export const registerSchema = zod
   .object({
-    name: zod.string().nonempty("Full name is required"),
+    user_type: zod.enum(["candidate", "company"], {
+      required_error: "Please select your account type",
+    }),
+    full_name: zod.string().optional(),
+    company_name: zod.string().optional(),
     email: zod
       .string()
       .nonempty("Email is required")
@@ -18,8 +22,33 @@ export const registerSchema = zod
         "Password must be at least 8 characters, include uppercase, lowercase, a number, and a special character"
       ),
     confirmPassword: zod.string().nonempty("Confirm password is required"),
+    is_disabled_friendly: zod.boolean().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"],
-  });
+  })
+  .refine(
+    (data) => {
+      if (data.user_type === "candidate") {
+        return data.full_name && data.full_name.trim() !== "";
+      }
+      return true;
+    },
+    {
+      message: "Full name is required for candidate accounts",
+      path: ["full_name"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.user_type === "company") {
+        return data.company_name && data.company_name.trim() !== "";
+      }
+      return true;
+    },
+    {
+      message: "Company name is required for company accounts",
+      path: ["company_name"],
+    }
+  );

@@ -8,6 +8,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainLayout from "./layouts/MainLayout";
+import SmartLayout from "./layouts/SmartLayout";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import ProtectedAuthRoute from "./ProtectedRoutes/ProtectedAuthRoute";
@@ -24,26 +25,32 @@ const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
+        index: true,
+        element: <Navigate to="login" />,
+      },
+      {
         path: "login",
         element: (
-          <ProtectedAuthRoute>
-            <LoginPage />
-          </ProtectedAuthRoute>
+          // <ProtectedAuthRoute>
+          //   <LoginPage />
+          // </ProtectedAuthRoute>
+          <LoginPage />
         ),
       },
       {
         path: "register",
         element: (
-          <ProtectedAuthRoute>
-            <RegisterPage />{" "}
-          </ProtectedAuthRoute>
+          // <ProtectedAuthRoute>
+          //   <RegisterPage />
+          // </ProtectedAuthRoute>
+          <RegisterPage />
         ),
       },
     ],
   },
   {
     path: "/user",
-    element: <MainLayout />,
+    element: <SmartLayout />,
     children: [
       {
         index: true,
@@ -56,10 +63,9 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: (
-          // <ProtectedRoute>
-          //   <DashboardPage />
-          // </ProtectedRoute>
-          <DashboardPage />
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
         ),
       },
       {
@@ -107,7 +113,7 @@ const router = createBrowserRouter([
 
   {
     path: "/company",
-    element: <MainLayout />,
+    element: <SmartLayout />,
     children: [
       {
         index: true,

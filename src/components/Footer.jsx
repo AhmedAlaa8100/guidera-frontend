@@ -22,10 +22,10 @@ import {
 import { useDarkMode } from "../contexts/DarkModeContext";
 import { Link } from "react-router-dom";
 const quickLinks = [
-  { name: "Home", href: "/"},
-  { name: "About", href: "/about"},
-  { name: "Roadmap", href: "/roadmap"},
-  { name: "Project Manager", href: "/project-manager"},
+  { name: "Home", href: "dashboard" },
+  { name: "About", href: "about" },
+  { name: "Roadmap", href: "roadmap" },
+  { name: "Project Manager", href: "project-manager" },
 ];
 
 const socialLinks = [
@@ -98,7 +98,7 @@ export default function Footer() {
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Grid container spacing={4}>
           {/* Logo and Description */}
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography
               variant="h4"
               sx={{
@@ -127,11 +127,10 @@ export default function Footer() {
               hands-on projects, and expert guidance. Master the skills you need
               to succeed in tech.
             </Typography>
-            
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography
               variant="h6"
               sx={{
@@ -168,7 +167,7 @@ export default function Footer() {
           </Grid>
 
           {/* Contact & Social */}
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography
               variant="h6"
               sx={{

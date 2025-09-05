@@ -36,10 +36,14 @@ export default function LoginPage() {
     const data = await loginApi(formData);
     setIsLoading(false);
 
-    if (data.message === "success") {
-      localStorage.setItem("token", data.token);
+    if (data.access) {
+      localStorage.setItem("token", data.access);
       setIsLoggedIn(true);
-      navigate("/dashboard");
+      if (data.user.user_type === "candidate") {
+        navigate("/user/dashboard");
+      } else {
+        navigate("/company");
+      }
     } else {
       setErrMsg(data);
     }
