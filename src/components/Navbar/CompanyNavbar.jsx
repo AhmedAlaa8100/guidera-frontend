@@ -69,8 +69,9 @@ export default function CompanyNavbar() {
   return (
     <BaseNavbar
       navigationItems={companyNavigationItems}
-      brandName="Guidera Company"
-      brandPath="/company/dashboard"
+      brandName="Guidera"
+      subBrandName="Company"
+      brandPath="/company"
       showProfileMenu={true}
       showDarkModeToggle={true}
       onLogout={handleLogout}
